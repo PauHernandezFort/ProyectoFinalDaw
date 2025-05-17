@@ -1,0 +1,27 @@
+
+services:
+  server-php:
+    container_name: servidor_php
+    build:
+      context: .  # El contexto de construcción debe ser el directorio actual
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ../:/www/html
+    stdin_open: true
+    links:
+      - mariadb-server
+    ports:
+      - "8000:8000"
+
+  mariadb-server:
+    container_name: servidor_db
+    image: mariadb:latest  # Asegúrate de usar una imagen de MariaDB correcta
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ../.db_mysql:/var/lib/mysql
