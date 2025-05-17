@@ -1,0 +1,32 @@
+<div>
+  <div class="card-body">
+  
+    <h4 class="card-title mb-4" style="color: #28a745;">Inicio de Sesión</h4>
+    <!-- Spinner: se muestra únicamente cuando isLoading es true -->
+    <div class="text-center my-3" *ngIf="isLoading">
+      <i class="pi pi-spin pi-spinner" style="font-size: 2rem; color: #28a745;"></i>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email"
+               class="form-control"
+               id="email"
+               formControlName="email"
+               placeholder="nombre@ejemplo.com" />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password"
+               class="form-control"
+               id="password"
+               formControlName="password"
+               placeholder="••••••••" />
+      </div>
+
+      <p-button label="Iniciar sesión" class="w-100" [disabled]="isLoading" type="submit"></p-button>
+    </form>
+  </div>
+</div>

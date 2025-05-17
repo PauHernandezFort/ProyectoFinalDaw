@@ -1,0 +1,17 @@
+/* En tu archivo styles.css o app.component.css */
+.custom-spinner .p-progress-spinner-circle {
+    stroke: #28a745 !important; /* Color verde personalizado */
+  }
+  
+  .p-progress-spinner {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .register-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem; /* opcional */
+  }
+  

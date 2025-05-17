@@ -1,0 +1,34 @@
+<p-card styleClass="custom-card">
+    <ng-template pTemplate="header">
+      <img 
+        src="{{img}}" 
+        alt="Imagen anuncio"
+        class="anuncio-img"
+        height="250px"
+        width="100%"
+      />
+    </ng-template>
+  
+    <div class="p-card-content">
+      <h5 class="titulo">{{ titulo }}</h5>
+      <p class="categoria"><strong>Categoría:</strong> {{ categoria }}</p>
+      <p class="descripcion">{{ descripcion }}</p>
+      <p class="correo"> <strong>Correo:</strong> {{ correo }}</p>
+      <p class="numero"><strong>Teléfono:</strong> {{ numero }}</p>
+
+      <div class="pago-boton d-flex justify-content-between align-items-center mb-2">
+        <span class="pago">{{ pago }}€</span>
+      </div>
+      <div class="text-end">
+        <button 
+          pButton 
+          type="button" 
+          label="Ir al mapa" 
+          icon="pi pi-map-marker"
+          class="p-button-sm p-button-secondary"
+          (click)="irAMapa($event)"
+        ></button>
+      </div>
+    </div>
+  </p-card>
+  
