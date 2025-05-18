@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AnunciosService {
-  private apiUrl = 'http://100.25.128.174/api';
+  private apiUrl = 'http://100.25.128.174:8000/api';
+
 
   constructor(public http: HttpClient) { }
 
