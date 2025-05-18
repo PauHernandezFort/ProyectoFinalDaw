@@ -1,0 +1,23 @@
+
+<div class="register-container">
+<p-card [style]="{ width: '450px', overflow: 'hidden' }">
+  <div class="card-body">
+    <!-- Se muestra el Login si isLogin es true; de lo contrario, se muestra el Register -->
+    <ng-container *ngIf="isLogin; else registerTemplate">
+      <app-login></app-login>
+      <p class="text-center mt-3">
+        ¿No tienes cuenta? 
+        <a href="#" (click)="toggleAuth(); $event.preventDefault()">Registrarse</a>
+      </p>
+    </ng-container>
+
+    <ng-template #registerTemplate>
+      <app-register></app-register>
+      <p class="text-center mt-3">
+        ¿Ya tienes cuenta? 
+        <a href="#" (click)="toggleAuth(); $event.preventDefault()">Iniciar sesión</a>
+      </p>
+    </ng-template>
+  </div>
+</p-card>
+</div>

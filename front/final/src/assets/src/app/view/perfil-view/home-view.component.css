@@ -1,0 +1,21 @@
+
+  .page-container {
+    background-color: #000000;
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .main-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 1200px;
+  }
+  body {
+    background-color: black;
+}

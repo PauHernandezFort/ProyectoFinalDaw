@@ -1,0 +1,35 @@
+::ng-deep .p-carousel .p-carousel-item {
+  width: 100%; /* Esto hará que cada carta ocupe el ancho completo disponible dentro del carrusel */
+  box-sizing: border-box; /* Esto incluye el padding y el border en el cálculo del ancho */
+  overflow: hidden; /* Esto evitará que el contenido se desborde */
+  }
+  app-anuncio-card {
+    max-width: 400px; /* Ajusta este valor según tu diseño */
+    width: 400px;
+  }
+  .page-container {
+    background-color: #000000;
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .main-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 1200px;
+  }
+  .carousel-item-wrapper {
+    padding: 0 0.5rem; 
+    box-sizing: border-box;
+  }
+  
+  :host ::ng-deep .p-carousel .p-carousel-items-content {
+    margin: 0 -12rem;
+  }
+  

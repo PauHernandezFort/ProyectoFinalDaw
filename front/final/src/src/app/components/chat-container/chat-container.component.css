@@ -1,0 +1,17 @@
+.chat-container {
+    height: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+  }
+  
+  .chat-list {
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+    height: 100%;
+  }
+  
+  .chat-messages {
+    overflow-y: auto;
+    height: 100%;
+  }
+  

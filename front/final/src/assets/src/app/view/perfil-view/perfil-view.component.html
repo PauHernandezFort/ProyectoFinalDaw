@@ -1,0 +1,77 @@
+<div class="page-container" style="background-color: #000000; min-height: 100vh; padding: 2rem; display: flex; justify-content: center; align-items: flex-start;">
+  <div class="main-card" style="background-color: #ffffff; padding: 2rem; border-radius: 1rem; box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); width: 100%; max-width: 1200px;">
+    <div class="container my-5">
+      <p-toast></p-toast>
+      <p-confirmDialog></p-confirmDialog>
+
+      <div class="card shadow-lg border-0">
+        <div class="card-body text-center" style="background-color: #f8f9fa; color: #343a40;">
+          <!-- Foto de perfil -->
+          <img [src]="fotoPerfil || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'" alt="Foto de perfil"
+            class="rounded-circle mb-3" width="150" height="150"
+            style="object-fit: cover; border: 4px solid #28a745;" />
+
+          <!-- Nombre de usuario -->
+          <h2 class="card-title" style="color: #28a745;">{{ nombreUsuario }}</h2>
+
+          <!-- Descripción -->
+          <p class="text-muted">{{ descripcion }}</p>
+
+          <!-- Datos adicionales -->
+          <div class="d-flex justify-content-center flex-wrap gap-4 mt-4">
+          
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5" *ngIf="productos.length > 0">
+        <div class="col-md-4 mb-4" *ngFor="let producto of productos">
+          <div class="card h-100" style="background-color: #f8f9fa; border: 1px solid #6c757d;">
+            <img [src]="serverUrl + '/' + producto.imagen || 'https://via.placeholder.com/300x200?text=Sin+Imagen'"
+              class="card-img-top" alt="Imagen del producto" style="height: 200px; object-fit: cover;">
+            <div class="d-flex justify-content-end gap-2">
+              <div class="card-body">
+                <h5 class="card-title" style="color: #28a745;">{{ producto.titulo }}</h5>
+                <p class="card-text">{{ producto.descripcion }}</p>
+                <p class="fw-bold" style="color: #218838;">{{ producto.precio }} €</p>
+                <button class="btn btn-sm" style="background-color: #ffc107; color: white;"
+                  (click)="editarProducto(producto)">
+                  Editar
+                </button>
+                <button class="btn btn-sm" style="background-color: #dc3545; color: white;"
+                  (click)="confirmarEliminacion(producto.id)">
+                  Eliminar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p-dialog [(visible)]="display" [modal]="true" [closable]="false">
+          <h3>Editar Producto</h3>
+          <div *ngIf="isLoading" class="text-center my-3">
+            <i class="pi pi-spin pi-spinner" style="font-size: 2rem; color: #28a745;"></i>
+            <p>Cargando...</p>
+          </div>
+          <div *ngIf="!isLoading">
+            <div class="form-group">
+              <label for="titulo">Título:</label>
+              <input type="text" id="titulo" class="form-control" [(ngModel)]="productoEditar.titulo">
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción:</label>
+              <textarea id="descripcion" class="form-control" [(ngModel)]="productoEditar.descripcion"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="precio">Precio:</label>
+              <input type="number" id="precio" class="form-control" [(ngModel)]="productoEditar.precio">
+            </div>
+            <button (click)="guardarEdicion()" class="btn btn-success mt-3">
+              Guardar cambios
+            </button>
+          </div>
+        </p-dialog>
+      </div>
+    </div>
+  </div>
+</div>

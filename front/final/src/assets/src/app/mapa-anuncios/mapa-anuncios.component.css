@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  .map-wrapper {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9; /* mantiene proporción y hace el mapa responsive */
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  #mapa {
+    width: 100%;
+    height: 100%;
+  }
+  

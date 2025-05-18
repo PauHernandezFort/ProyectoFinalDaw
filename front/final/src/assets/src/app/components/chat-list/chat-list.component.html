@@ -1,0 +1,17 @@
+<!-- Mostrar los chats si hay -->
+<div class="p-grid p-dir-col p-3" *ngIf="chats.length > 0; else sinChats">
+    <div class="p-col" *ngFor="let chat of chats" (click)="seleccionarChat(chat)">
+      <p-card [ngStyle]="{ 'cursor': 'pointer' }">
+        <ng-template pTemplate="header">
+          <strong>{{ chat.otro_usuario_nombre }}</strong>
+        </ng-template>
+        <p>Haz clic para entrar al chat con {{ chat.otro_usuario_nombre }}</p>
+      </p-card>
+    </div>
+  </div>
+  
+  <!-- Plantilla alternativa si no hay chats -->
+  <ng-template #sinChats>
+    <p class="p-text-center p-mt-4">No tienes chats todavía.</p>
+  </ng-template>
+  

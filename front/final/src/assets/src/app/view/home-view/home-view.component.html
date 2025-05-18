@@ -1,0 +1,37 @@
+<div class="page-container">
+  <div class="main-card">
+    <app-mapa-anuncios 
+      (anunciosCargados)="guardarAnuncios($event)" 
+      [coordenadasSeleccionadas]="coordenadasSeleccionadas">
+    </app-mapa-anuncios>
+
+    <div class="container mt-4" *ngFor="let categoria of categorias">
+      <h3 class="mb-3">{{ categoria }}</h3>
+      <p-carousel
+        [value]="anunciosPorCategoria[categoria]"
+        [numVisible]="3"
+        [numScroll]="1"
+        [circular]="true"
+        [responsiveOptions]="responsiveOptions"
+      >
+      <ng-template pTemplate="item" let-anuncio>
+        <div class="carousel-item-wrapper">
+          <app-anuncio-card
+            [img]="serverUrl + '/' + anuncio.imagen || 'https://via.placeholder.com/300x200?text=Sin+Imagen'" 
+            class="card-img-top" 
+            [titulo]="anuncio.titulo"
+            [categoria]="anuncio.tipo"
+            [correo]="anuncio.correo"
+            [numero]="anuncio.telefono"
+            [descripcion]="anuncio.descripcion"
+            [pago]="anuncio.precio"
+            [lat]="anuncio.lat"
+            [lng]="anuncio.lng"
+            (clickUbicacion)="centrarMapa($event)"
+          ></app-anuncio-card>
+        </div>
+      </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+</div>

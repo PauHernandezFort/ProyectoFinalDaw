@@ -1,0 +1,20 @@
+<!-- chat-container.component.html -->
+<div class="chat-container p-grid p-nogutter">
+    <div class="chat-list p-col-12 p-md-4">
+      <app-chat-list 
+        (chatSeleccionado)="onChatSeleccionado($event)" 
+        [usuarioId]="usuarioId">
+      </app-chat-list>
+    </div>
+    <div class="chat-messages p-col-12 p-md-8">
+      <app-chat-messages 
+        *ngIf="chatSeleccionado" 
+        [chat]="chatSeleccionado">
+      </app-chat-messages>
+      
+      <p *ngIf="!chatSeleccionado" class="p-m-4">
+        Selecciona un chat para ver los mensajes.
+      </p>
+    </div>
+  </div>
+  

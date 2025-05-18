@@ -1,0 +1,12 @@
+<div class="p-m-3">
+    <h3>Chat con {{ chat.otro_usuario_nombre }}</h3>
+  
+    <div *ngFor="let mensaje of mensajes" 
+         [ngClass]="{'p-text-right': mensaje.enviadoPorMi, 'p-text-left': !mensaje.enviadoPorMi}"
+         class="p-mb-2">
+      <p-card [styleClass]="mensaje.enviadoPorMi ? 'mensaje-mio' : 'mensaje-otro'">
+        {{ mensaje.texto }}
+      </p-card>
+    </div>
+  </div>
+  

@@ -1,0 +1,69 @@
+<div>
+  <div class="text-center my-3" *ngIf="isLoading">
+    <i class="pi pi-spin pi-spinner" style="font-size: 2rem; color: #28a745;"></i>
+  </div>
+
+  <form (ngSubmit)="crearAnuncio()" #form="ngForm" class="formulario">
+    <div class="map-container">
+      <div id="mapa"></div>
+    </div>
+
+    <!-- Campo para el Título -->
+    <div class="form-group">
+      <label for="titulo">Título</label>
+      <input type="text" id="titulo" name="titulo" [(ngModel)]="titulo" required />
+    </div>
+
+    <!-- Campo para la Descripción -->
+    <div class="form-group">
+      <label for="description" class="form-label">Descripción</label>
+      <textarea class="form-control" id="description" name="descripcion" [(ngModel)]="descripcion"
+        placeholder="Escriba aquí" rows="4" maxlength="255"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="categoria">Categoría</label>
+      <p-dropdown [options]="categorias" [(ngModel)]="categoria" optionLabel="label" optionValue="value"
+        placeholder="Selecciona una categoría" name="categoria" id="categoria" required></p-dropdown>
+    </div>
+    <!-- Campo para el Teléfono -->
+    <div class="form-group">
+      <label for="numero">Teléfono</label>
+      <input type="tel" id="numero" name="numero" [(ngModel)]="numero" pattern="[0-9]{9}" maxlength="9" required
+        placeholder="Ej. 612345678" />
+    </div>
+
+    <!-- Campo para el Correo Electrónico -->
+    <div class="form-group">
+      <label for="correo">Correo Electrónico</label>
+      <input type="email" id="correo" name="correo" [(ngModel)]="correo" required placeholder="ejemplo@correo.com" />
+    </div>
+
+
+    <div class="form-group">
+      <label for="imagen">Imagen</label>
+      <p-fileUpload name="imagen" url="" accept="image/*" [auto]="true" (onSelect)="onImageSelect($event)"
+        chooseLabel="Seleccionar Imagen" [maxFileSize]="10000000" [previewWidth]="100">
+      </p-fileUpload>
+    </div>
+    <!-- Campo para el Pago -->
+    <div class="form-group">
+      <label for="pago">Pago (€)</label>
+      <input type="number" id="pago" name="pago" [(ngModel)]="pago" required />
+    </div>
+
+    <!-- Campo para la Fecha -->
+    <div class="form-group">
+      <label for="fecha">Fecha</label>
+      <input type="date" id="fecha" name="fecha" [(ngModel)]="fecha" required />
+    </div>
+
+    <!-- Mostrar la ubicación seleccionada -->
+    <div *ngIf="lat && lng" class="coordenadas">
+      <p>Ubicación seleccionada: {{ lat }}, {{ lng }}</p>
+    </div>
+
+    <!-- Botón para enviar el formulario -->
+    <button type="submit" [disabled]="form.invalid || !lat || !lng">Crear anuncio</button>
+  </form>
+</div>
