@@ -115,7 +115,7 @@ export class CrearAnuncioComponent implements OnInit {
       descripcion: this.descripcion,
       telefono: this.numero !== null ? Number(this.numero) : null, 
       correo: this.correo,
-      usuario_id: `http://127.0.0.1:8000/api/usuarios/${this.idUsuario}`,  
+      usuario_id: `http://100.25.128.174:8000/api/usuarios/${this.idUsuario}`,  
       estado: "activo", 
       precio: this.pago || 0,  
       tipo: this.categoria,  

@@ -22,7 +22,7 @@ export interface Mensaje {
 })
 export class ChatService {
 
-  private apiUrl = 'http://127.0.0.1:8000/api'; // Cambia si hace falta
+  private apiUrl = 'http://100.25.128.174:8000/api'; // Cambia si hace falta
 
   constructor(private http: HttpClient) { }
 
